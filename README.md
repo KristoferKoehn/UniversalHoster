@@ -1,5 +1,5 @@
 # UniversalHoster
-A super simple DHCP-like application to facilitate server browsing in Godot (4.1.1) application (non-Mono and Mono compatible)
+A super simple DHCP-like application to facilitate server browsing in Godot (4.1.1) applications (non-Mono and Mono compatible)
 
 This tool came to me in a fever dream. It isn't done yet (but should work!)
 
