@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "41QE7BSfYngvNw2l9cYCeV9vQodYtkFqWpll6NOrvmU0fZwqonIq9C4zLTChjhFEaFGyfJdRJX33AiCOkhH6Vg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kristofer\\Desktop\\UniversalConnector\\UniversalConnector.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kristofer\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
+    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "UniversalConnector": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalConnector", "UniversalConnector.csproj", "{A3E63D17-30B2-4288-8DAA-90FADA46E293}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3E63D17-30B2-4288-8DAA-90FADA46E293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3E63D17-30B2-4288-8DAA-90FADA46E293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3E63D17-30B2-4288-8DAA-90FADA46E293}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{A3E63D17-30B2-4288-8DAA-90FADA46E293}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{A3E63D17-30B2-4288-8DAA-90FADA46E293}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{A3E63D17-30B2-4288-8DAA-90FADA46E293}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

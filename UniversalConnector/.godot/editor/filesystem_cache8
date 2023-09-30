@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1696094473
+icon.svg::CompressedTexture2D::4033497344376696252::1695873588::1695873612::1::::<><>::
+Main.cs::CSharpScript::-1::1695962202::0::1::::<><>::
+Main.gd::GDScript::-1::1695966364::0::1::::<>Node2D<>::
+Main.tscn::PackedScene::4165959948483782521::1696089703::0::1::::<><>::res://Main.gd
+::res://Properties/::1695877523
+launchSettings.json::JSON::-1::1695877526::0::1::::<><>::
+::res://Scripts/::1696032229
+UniversalConnector.cs::CSharpScript::-1::1695958494::0::1::::<><>::
+UniversalConnector.gd::GDScript::-1::1696032229::0::1::::<>Node<>::

@@ -1,0 +1,17 @@
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\bin\Debug\UniversalConnector.deps.json
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\bin\Debug\UniversalConnector.runtimeconfig.json
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\bin\Debug\UniversalConnector.dll
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\bin\Debug\UniversalConnector.pdb
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.csproj.AssemblyReference.cache
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.AssemblyInfoInputs.cache
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.AssemblyInfo.cs
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.csproj.CoreCompileInputs.cache
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.csproj.CopyComplete
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.dll
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\refint\UniversalConnector.dll
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.pdb
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\UniversalConnector.genruntimeconfig.cache
+C:\Users\Kristofer\Desktop\UniversalConnector\.godot\mono\temp\obj\Debug\ref\UniversalConnector.dll

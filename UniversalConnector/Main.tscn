@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ma0s7x8jr5b"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_43xw6"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_43xw6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.919
+anchor_bottom = 0.823
+offset_right = 93.312
+offset_bottom = 114.696
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tree" type="Tree" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 35.0
+offset_right = 1106.0
+offset_bottom = 520.0
+columns = 2
+select_mode = 1
+
+[node name="Host" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 548.0
+offset_right = 152.0
+offset_bottom = 584.0
+text = "Host"
+
+[node name="ServerName" type="LineEdit" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 552.0
+offset_right = 438.0
+offset_bottom = 583.0
+placeholder_text = "Server Name"
+
+[node name="Join" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 544.0
+offset_right = 1088.0
+offset_bottom = 581.0
+text = "Join"
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 596.0
+offset_right = 939.0
+offset_bottom = 622.0
+text = "Current Connection: "
+
+[node name="IpLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 596.0
+offset_right = 985.0
+offset_bottom = 619.0
+
+[connection signal="pressed" from="Control/Panel/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Control/Panel/Join" to="." method="_on_join_pressed"]
