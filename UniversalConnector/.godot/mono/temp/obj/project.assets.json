@@ -94,11 +94,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\USERS\\KRISTOFER\\DESKTOP\\UNIVERSALCONNECTOR\\UniversalConnector.csproj",
+      "projectUniqueName": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj",
       "projectName": "UniversalConnector",
-      "projectPath": "C:\\USERS\\KRISTOFER\\DESKTOP\\UNIVERSALCONNECTOR\\UniversalConnector.csproj",
+      "projectPath": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj",
       "packagesPath": "C:\\Users\\Kristofer\\.nuget\\packages\\",
-      "outputPath": "C:\\USERS\\KRISTOFER\\DESKTOP\\UNIVERSALCONNECTOR\\.godot\\mono\\temp\\obj\\",
+      "outputPath": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
@@ -160,7 +160,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

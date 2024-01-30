@@ -2,10 +2,82 @@ import socket
 import threading
 import uuid
 import time
+import json
 from datetime import datetime, timedelta
 
 # Dictionary to store host IDs, their corresponding IP addresses, and registration times
 hosts = {}
+
+host_message = '''{
+  "request_type": "host",
+  "data": {
+    "ip_address": "",
+    "server_name": ""
+  }
+}'''
+
+success_host_message = '''{
+  "request_type": "host_success",
+  "data": {
+    "uuid": ""
+  }
+}'''
+
+join_message = '''{
+  "request_type": "join",
+  "data": {
+    "server_name": ""
+  }
+}'''
+
+browse_message = '''{
+  "request_type": "browse",
+  "data": {}
+}
+'''
+
+browse_response = '''{
+  "response_type": "browse_response",
+  "data": {
+    "servers": [
+      {
+        "uuid": "",
+        "server_name": ""
+      }
+    ]
+  }
+}
+'''
+
+
+def json_string_to_dict(utf8_json_string):
+    try:
+        # Decode the UTF-8 encoded JSON string
+        decoded_json = utf8_json_string.decode('utf-8')
+
+        # Parse the JSON string into a Python dictionary
+        json_dict = json.loads(decoded_json)
+
+        return json_dict
+
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
+        return None
+
+
+def dict_to_utf8_json_string(data_dict):
+    try:
+        # Serialize the dictionary to a JSON-formatted string
+        json_string = json.dumps(data_dict)
+
+        # Encode the JSON string to UTF-8
+        utf8_encoded_string = json_string.encode('utf-8')
+
+        return utf8_encoded_string
+
+    except Exception as e:
+        print(f"Error converting dictionary to UTF-8 JSON string: {e}")
+        return None
 
 
 def handle_client(client_socket):
@@ -18,6 +90,27 @@ def handle_client(client_socket):
         print(f"Connection terminated abruptly with {client_socket.getpeername()[0]}")
         return
 
+    result_dict = json_string_to_dict(request)
+
+    if result_dict["request_type"] == "host":
+        host_id = str(uuid.uuid4())
+        unique_identifier = result_dict["server_name"]
+        hosts[host_id] = {
+            "ip": result_dict["data"]["ip_address"],
+            "registration_time": datetime.now(),
+            "unique_identifier": result_dict["server_name"],
+        }
+        print(f"Host ID {host_id} ({unique_identifier}) registered from {client_socket.getpeername()[0]}")
+        client_socket.send(host_id.encode("utf-8"))
+    elif result_dict["request_type"] == "browse":
+        b_dict = json_string_to_dict(browse_response.decode("utf-8"))
+        for host_id, info in hosts.items():
+            b_dict["data"]["servers"].append({host_id: info["unique_identifier"]})
+            message = dict_to_utf8_json_string(b_dict)
+            client_socket.send(message)
+
+
+    ## OLD STUFF, NO JSON
     if request.startswith("host "):
         _, _, unique_identifier = request.partition(' ')  # Extract the unique identifier
         # Generate a unique host ID

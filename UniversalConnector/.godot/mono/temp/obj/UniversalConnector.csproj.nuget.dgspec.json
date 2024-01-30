@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kristofer\\Desktop\\UniversalConnector\\UniversalConnector.csproj": {}
+    "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kristofer\\Desktop\\UniversalConnector\\UniversalConnector.csproj": {
+    "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kristofer\\Desktop\\UniversalConnector\\UniversalConnector.csproj",
+        "projectUniqueName": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj",
         "projectName": "UniversalConnector",
-        "projectPath": "C:\\Users\\Kristofer\\Desktop\\UniversalConnector\\UniversalConnector.csproj",
+        "projectPath": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj",
         "packagesPath": "C:\\Users\\Kristofer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kristofer\\Desktop\\UniversalConnector\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

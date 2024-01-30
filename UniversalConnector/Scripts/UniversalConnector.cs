@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Text.Json;
 using System.Xml.Linq;
 
 public class UniversalConnector
@@ -12,6 +13,39 @@ public class UniversalConnector
     private string HostUUID;
     private string UniversalHosterIP;
     private int Port;
+
+
+    static byte[] JsonToUtf8Bytes(object data)
+    {
+        try
+        {
+            // Serialize the object to a UTF-8 encoded byte array
+            return JsonSerializer.SerializeToUtf8Bytes(data);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error converting JSON to UTF-8: {e.Message}");
+            return null;
+        }
+    }
+
+    static JsonElement Utf8StringToJson(string utf8JsonString)
+    {
+        try
+        {
+            // Parse the UTF-8 encoded JSON string into a JsonDocument
+            JsonDocument jsonDocument = JsonDocument.Parse(utf8JsonString);
+
+            // Access the root element of the JsonDocument
+            return jsonDocument.RootElement;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error converting UTF-8 to JSON: {e.Message}");
+            return default;
+        }
+    }
+
 
     /// <summary>
     /// Initializes the Universal Hoster IP address. The Universal Hoster must be online and configured correctly for this class to work.
@@ -32,9 +66,25 @@ public class UniversalConnector
     /// <returns></returns>
     public List<string> Browse()
     {
-        string response = SendCommand("browse");
-        string[] strings = response.Split('\n');
-        List<string> result = strings.ToList<string>();
+        string response = SendCommand("{\r\n  \"request_type\": \"browse\",\r\n  \"data\": {}\r\n}");
+        JsonElement dict = Utf8StringToJson(response);
+        List<string> result = new List<string>();
+        if (dict.TryGetProperty("data", out JsonElement key3Element) && key3Element.ValueKind == JsonValueKind.Array)
+        {
+            // Access values in the JSON array using EnumerateArray
+            foreach (JsonElement item in key3Element.EnumerateArray())
+            {
+                result.Add($"{item.GetProperty("uuid")} {item.GetProperty("server_name")}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Failed to convert UTF-8 to JSON or key3 is not an array.");
+        }
+    
+
+
+
         return result;
     }
 
@@ -45,7 +95,7 @@ public class UniversalConnector
     /// <returns></returns>
     public string Join(string UUID)
     {
-        return SendCommand($"join {UUID}");
+        return SendCommand($"{{\r\n  \"request_type\": \"join\",\r\n  \"data\": {{\r\n    \"unique_identifier\": \"{UUID}\"\r\n  }}\r\n}} ");
     }
 
     private string SendCommand(string command)
@@ -68,8 +118,8 @@ public class UniversalConnector
     /// </summary>
     /// <param name="ServerName"></param>
     /// <returns></returns>
-    public string Host(string ServerName) { 
-        return SendCommand($"host {ServerName}");
+    public string Host(string ServerName, string ip_address) { 
+        return SendCommand($"{{\r\n  \"request_type\": \"host\",\r\n  \"data\": {{\r\n    \"ip_address\":{ip_address}\"\",\r\n    \"server_name\":{ServerName}\"\"\r\n  }}\r\n}} ");
     }
 
     /// <summary>
