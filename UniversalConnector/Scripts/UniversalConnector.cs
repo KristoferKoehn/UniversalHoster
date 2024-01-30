@@ -66,15 +66,19 @@ public class UniversalConnector
     /// <returns></returns>
     public List<string> Browse()
     {
-        string response = SendCommand("{\r\n  \"request_type\": \"browse\",\r\n  \"data\": {}\r\n}");
+        string response = SendCommand("{\"request_type\": \"browse\",\"data\":{}}");
+        GD.Print(response);
         JsonElement dict = Utf8StringToJson(response);
         List<string> result = new List<string>();
-        if (dict.TryGetProperty("data", out JsonElement key3Element) && key3Element.ValueKind == JsonValueKind.Array)
+        if (dict.TryGetProperty("data", out JsonElement dataElement))
         {
-            // Access values in the JSON array using EnumerateArray
-            foreach (JsonElement item in key3Element.EnumerateArray())
+            if (dataElement.TryGetProperty("servers", out JsonElement serversElement) && serversElement.ValueKind == JsonValueKind.Array)
             {
-                result.Add($"{item.GetProperty("uuid")} {item.GetProperty("server_name")}");
+                // Access values in the JSON array using EnumerateArray
+                foreach (JsonElement item in serversElement.EnumerateArray())
+                {
+                    result.Add($"{item.GetProperty("uuid")} {item.GetProperty("server_name")}");
+                }
             }
         }
         else
@@ -82,9 +86,6 @@ public class UniversalConnector
             Console.WriteLine("Failed to convert UTF-8 to JSON or key3 is not an array.");
         }
     
-
-
-
         return result;
     }
 
@@ -95,7 +96,9 @@ public class UniversalConnector
     /// <returns></returns>
     public string Join(string UUID)
     {
-        return SendCommand($"{{\r\n  \"request_type\": \"join\",\r\n  \"data\": {{\r\n    \"unique_identifier\": \"{UUID}\"\r\n  }}\r\n}} ");
+        string msg = SendCommand($"{{\"request_type\": \"join\",\"data\": {{\"unique_identifier\": \"{UUID}\"}}}}");
+        JsonElement jso = Utf8StringToJson(msg);
+        return jso.GetProperty("data").GetProperty("ip").ToString();
     }
 
     private string SendCommand(string command)
@@ -119,7 +122,7 @@ public class UniversalConnector
     /// <param name="ServerName"></param>
     /// <returns></returns>
     public string Host(string ServerName, string ip_address) { 
-        return SendCommand($"{{\r\n  \"request_type\": \"host\",\r\n  \"data\": {{\r\n    \"ip_address\":{ip_address}\"\",\r\n    \"server_name\":{ServerName}\"\"\r\n  }}\r\n}} ");
+        return SendCommand($"{{\"request_type\": \"host\", \"data\": {{\"ip_address\":\"{ip_address}\",\"server_name\":\"{ServerName}\"}}}}");
     }
 
     /// <summary>

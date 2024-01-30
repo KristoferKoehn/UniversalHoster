@@ -30,6 +30,13 @@ join_message = '''{
   }
 }'''
 
+join_response = '''{
+  "request_type": "join",
+  "data": {
+    "ip": ""
+  }
+}'''
+
 browse_message = '''{
   "request_type": "browse",
   "data": {}
@@ -40,20 +47,25 @@ browse_response = '''{
   "response_type": "browse_response",
   "data": {
     "servers": [
-      {
-        "uuid": "",
-        "server_name": ""
-      }
     ]
   }
 }
 '''
 
 
+def print_dict_recursive(input_dict, indent=0):
+    for key, value in input_dict.items():
+        if isinstance(value, dict):
+            print(f"{' ' * indent}{key}:")
+            print_dict_recursive(value, indent + 2)
+        else:
+            print(f"{' ' * indent}{key}: {value}")
+
+
 def json_string_to_dict(utf8_json_string):
     try:
         # Decode the UTF-8 encoded JSON string
-        decoded_json = utf8_json_string.decode('utf-8')
+        decoded_json = utf8_json_string
 
         # Parse the JSON string into a Python dictionary
         json_dict = json.loads(decoded_json)
@@ -91,65 +103,30 @@ def handle_client(client_socket):
         return
 
     result_dict = json_string_to_dict(request)
+    print(result_dict["request_type"])
 
     if result_dict["request_type"] == "host":
         host_id = str(uuid.uuid4())
-        unique_identifier = result_dict["server_name"]
+        unique_identifier = result_dict["data"]["server_name"]
         hosts[host_id] = {
             "ip": result_dict["data"]["ip_address"],
             "registration_time": datetime.now(),
-            "unique_identifier": result_dict["server_name"],
+            "unique_identifier": result_dict["data"]["server_name"],
         }
         print(f"Host ID {host_id} ({unique_identifier}) registered from {client_socket.getpeername()[0]}")
         client_socket.send(host_id.encode("utf-8"))
     elif result_dict["request_type"] == "browse":
-        b_dict = json_string_to_dict(browse_response.decode("utf-8"))
+        b_dict = json_string_to_dict(browse_response)
         for host_id, info in hosts.items():
-            b_dict["data"]["servers"].append({host_id: info["unique_identifier"]})
-            message = dict_to_utf8_json_string(b_dict)
-            client_socket.send(message)
-
-
-    ## OLD STUFF, NO JSON
-    if request.startswith("host "):
-        _, _, unique_identifier = request.partition(' ')  # Extract the unique identifier
-        # Generate a unique host ID
-        host_id = str(uuid.uuid4())
-        # Store the host's IP address, registration time, and unique identifier
-        hosts[host_id] = {
-            "ip": client_socket.getpeername()[0],
-            "registration_time": datetime.now(),
-            "unique_identifier": unique_identifier,
-        }
-        print(f"Host ID {host_id} ({unique_identifier}) registered from {client_socket.getpeername()[0]}")
-        client_socket.send(host_id.encode("utf-8"))
-
-    elif request == "browse":
-        # Send a list of host IDs along with unique identifiers to the client
-        if len(hosts) < 1:
-            client_socket.send("123 456".encode("utf-8"))
-        else:
-            host_info_list = [f"{host_id} {info['unique_identifier']}" for host_id, info in hosts.items()]
-            host_info_str = "\n".join(host_info_list)
-            print("Sending: " + host_info_str + " end of message")
-            client_socket.send(host_info_str.encode("utf-8"))
-
-    elif request.startswith("join "):
-        host_id = request.split()[1]
-        if host_id in hosts:
-            host_ip = hosts[host_id]["ip"]
-            client_socket.send(host_ip.encode("utf-8"))
-        else:
-            client_socket.send("".encode("utf-8"))
-
-    elif request.startswith("delete "):
-        host_id = request.split()[1]
-        if host_id in hosts:
-            del hosts[host_id]
-            client_socket.send("Host deleted.".encode("utf-8"))
-        else:
-            client_socket.send("".encode("utf-8"))
-
+            b_dict["data"]["servers"].append({"uuid": host_id, "server_name": info["unique_identifier"]})
+        message = dict_to_utf8_json_string(b_dict)
+        client_socket.send(message)
+    elif result_dict["request_type"] == "join":
+        if result_dict["data"]["unique_identifier"] in hosts:
+            host_ip = hosts[result_dict["data"]["unique_identifier"]]["ip"]
+            message = f' {{"request_type\" : \"join\",\"data\": {{\"ip\": \"{host_ip}\"}}}}'
+            print(message)
+            client_socket.send(message.encode("utf-8"))
     else:
         print("invalid command: " + request)
         client_socket.send("0000".encode("utf-8"))
