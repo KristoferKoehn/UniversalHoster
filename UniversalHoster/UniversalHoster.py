@@ -44,7 +44,7 @@ browse_message = '''{
 '''
 
 browse_response = '''{
-  "response_type": "browse_response",
+  "request_type": "browse_response",
   "data": {
     "servers": [
     ]
@@ -114,7 +114,11 @@ def handle_client(client_socket):
             "unique_identifier": result_dict["data"]["server_name"],
         }
         print(f"Host ID {host_id} ({unique_identifier}) registered from {client_socket.getpeername()[0]}")
-        client_socket.send(host_id.encode("utf-8"))
+        host_response = {
+            "request_type": "host_response",
+            "uuid": f"{host_id}"
+        }
+        client_socket.send(dict_to_utf8_json_string(host_response))
     elif result_dict["request_type"] == "browse":
         b_dict = json_string_to_dict(browse_response)
         for host_id, info in hosts.items():
@@ -127,6 +131,9 @@ def handle_client(client_socket):
             message = f' {{"request_type\" : \"join\",\"data\": {{\"ip\": \"{host_ip}\"}}}}'
             print(message)
             client_socket.send(message.encode("utf-8"))
+    elif result_dict["request_type"] == "host_refresh":
+        if result_dict["uuid"] in hosts:
+            hosts[result_dict["uuid"]]["registration_time"] = datetime.now()
     else:
         print("invalid command: " + request)
         client_socket.send("0000".encode("utf-8"))

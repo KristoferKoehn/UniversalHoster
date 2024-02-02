@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj": {}
+    "C:\\USERS\\KRISTOFER\\DOCUMENTS\\UNIVERSALHOSTER\\UNIVERSALCONNECTOR\\UniversalConnector.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj": {
+    "C:\\USERS\\KRISTOFER\\DOCUMENTS\\UNIVERSALHOSTER\\UNIVERSALCONNECTOR\\UniversalConnector.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj",
+        "projectUniqueName": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\UNIVERSALHOSTER\\UNIVERSALCONNECTOR\\UniversalConnector.csproj",
         "projectName": "UniversalConnector",
-        "projectPath": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj",
+        "projectPath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\UNIVERSALHOSTER\\UNIVERSALCONNECTOR\\UniversalConnector.csproj",
         "packagesPath": "C:\\Users\\Kristofer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\UNIVERSALHOSTER\\UNIVERSALCONNECTOR\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
@@ -46,15 +46,15 @@
           "dependencies": {
             "Godot.SourceGenerators": {
               "target": "Package",
-              "version": "[4.1.1, )"
+              "version": "[4.2.0, )"
             },
             "GodotSharp": {
               "target": "Package",
-              "version": "[4.1.1, )"
+              "version": "[4.2.0, )"
             },
             "GodotSharpEditor": {
               "target": "Package",
-              "version": "[4.1.1, )"
+              "version": "[4.2.0, )"
             }
           },
           "imports": [

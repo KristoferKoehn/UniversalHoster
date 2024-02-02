@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NueKA5qtRaMpbk164L1qjmwzuweGh9HXDHDvBqMrhLcss/p91zQ6jaFNRDrrEBUbpSKoS/TcwmNHhOR+sgkbfQ==",
+  "dgSpecHash": "MS/QA4qcJF8YAi99la2Tx7fm9vOa51+7aS688Bd9yl2ZmlfVNzrzmeFwqtU5q1FzvbSiEhHd8EqRS4fXdmd7nA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kristofer\\Documents\\UniversalHoster\\UniversalConnector\\UniversalConnector.csproj",
+  "projectFilePath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\UNIVERSALHOSTER\\UNIVERSALCONNECTOR\\UniversalConnector.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Kristofer\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
-    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
-    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512"
+    "C:\\Users\\Kristofer\\.nuget\\packages\\godot.sourcegenerators\\4.2.0\\godot.sourcegenerators.4.2.0.nupkg.sha512",
+    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharp\\4.2.0\\godotsharp.4.2.0.nupkg.sha512",
+    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharpeditor\\4.2.0\\godotsharpeditor.4.2.0.nupkg.sha512"
   ],
   "logs": []
 }
